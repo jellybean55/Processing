@@ -12,26 +12,76 @@ function draw() {
   let mn = minute();
   let sc = second();
   
+  //fill(255);
+  //noStroke();
+  //text(hr + ':' + mn + ':' + sc,0,0);
+  
   strokeWeight(8);
  stroke(255,100,150);
  noFill();
- let end1 = map(sc,0,59,0,360);
-  arc(0,0,300,300,0,end1);
+ let secondAngle = map(sc,0,60,0,360);
+  arc(0,0,300,300,0,secondAngle);
   
-  strokeWeight(1);
-  stroke(255);
-  text(hr + ":" + mn + ":" + sc, 180, 200);
-  
-  strokeWeight(8);
   stroke(33,0,255);
- let end2 = map(mn,0,59,0,360);
-  arc(0,0,280,280,0,end2);
+ let minuteAngle = map(mn,0,60,0,360);
+  arc(0,0,280,280,0,minuteAngle);
   
   stroke(0,255,44);
- let end3 = map(hr % 12,0,12,-90,360);
-  arc(0,0,260,260,0,end3);
+ let hourAngle = map(hr % 12,0,12,0,360);
+  arc(0,0,260,260,0,hourAngle);
+  
+    strokeWeight(8);
+
+  push();
+  rotate(hourAngle);
+  stroke(0,255,44);
+  line(0,0,75,0);
+  pop();
+  
+  
+   push();
+  rotate(minuteAngle);
+  stroke(33,0,255);
+  line(0,0,90,0);
+  pop();
+  
+  
+   push();
+  rotate(secondAngle);
+  stroke(255,100,150);
+  line(0,0,100,0);
+  pop();
+  
+  stroke(255);
+  point(0,0);
+  
 }
 
+  strokeWeight(2);
+
+  push();
+  rotate(hourAngle);
+  stroke(0,255,44);
+  line(0,0,100,60);
+  pop();
+  
+  
+   push();
+  rotate(minuteAngle);
+  stroke(33,0,255);
+  line(0,0,100,60);
+  pop();
+  
+  
+   push();
+  rotate(secondAngle);
+  stroke(255,100,150);
+  line(0,0,100,60);
+  pop();
+  
+  stroke(255);
+  point(0,0);
+  
  //fill(255);
  //noStroke();
  
